@@ -1,0 +1,33 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.32104.313
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TinyCLR.Compass", "TinyCLR.Compass\TinyCLR.Compass.csproj", "{02DF2813-3924-469B-B295-AEDBCD7F7B29}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DemoCompass", "DemoCompass\DemoCompass.csproj", "{2FF0B195-C291-4A13-B1F8-E0EB28F99485}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{02DF2813-3924-469B-B295-AEDBCD7F7B29}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{02DF2813-3924-469B-B295-AEDBCD7F7B29}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{02DF2813-3924-469B-B295-AEDBCD7F7B29}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{02DF2813-3924-469B-B295-AEDBCD7F7B29}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2FF0B195-C291-4A13-B1F8-E0EB28F99485}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2FF0B195-C291-4A13-B1F8-E0EB28F99485}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2FF0B195-C291-4A13-B1F8-E0EB28F99485}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{2FF0B195-C291-4A13-B1F8-E0EB28F99485}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2FF0B195-C291-4A13-B1F8-E0EB28F99485}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2FF0B195-C291-4A13-B1F8-E0EB28F99485}.Release|Any CPU.Deploy.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {25C87877-E6BC-43F1-AB4D-5840DAC4998C}
+	EndGlobalSection
+EndGlobal
