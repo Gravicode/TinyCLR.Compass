@@ -1,7 +1,7 @@
 # TinyCLR.Compass
 This is compass component for TinyCLR
 
-![Gauge 1](https://storagemurahaje.blob.core.windows.net/github/gauge.jpg)
+![Compass 1](https://storagemurahaje.blob.core.windows.net/github/compass.gif)
 
 
 ## How to use
