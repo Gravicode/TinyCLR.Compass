@@ -15,7 +15,13 @@ namespace TinyCLR.Compass
         double maxpitch = 80;
         double maxtilt= 80;
         CompassSize size;
+        Bitmap result = null;
 
+        SolidBrush drawBrushWhite = new SolidBrush(Color.FromArgb(255, 244, 255));
+        SolidBrush drawBrushRed = new SolidBrush(Color.FromArgb(255, 0, 0));
+        SolidBrush drawBrushOrange = new SolidBrush(Color.FromArgb(255, 150, 0));
+        SolidBrush drawBrushBlue = new SolidBrush(Color.FromArgb(0, 250, 255));
+        SolidBrush drawBrushWhiteGrey = new SolidBrush(Color.FromArgb(255, 255, 255));
         public double Degree
         {
             set { degree = value; } 
@@ -49,20 +55,11 @@ namespace TinyCLR.Compass
         }
         public Bitmap GetBitmap()
         {
-
-
             double maxRadius = size.Width > size.Height ? size.Height / 2 : size.Width / 2;
-
             double sizeMultiplier = maxRadius / 200;
             double relativepitch = pitch / maxpitch;
             double relativetilt = tilt / maxtilt;
-
-            Bitmap result = null;
-            SolidBrush drawBrushWhite = new SolidBrush(Color.FromArgb(255, 244, 255));
-            SolidBrush drawBrushRed = new SolidBrush(Color.FromArgb(240, 255, 0, 0));
-            SolidBrush drawBrushOrange = new SolidBrush(Color.FromArgb(240, 255, 150, 0));
-            SolidBrush drawBrushBlue = new SolidBrush(Color.FromArgb(100, 0, 250, 255));
-            SolidBrush drawBrushWhiteGrey = new SolidBrush(Color.FromArgb(20, 255, 255, 255));
+          
             double outerradius = (((maxRadius - sizeMultiplier * 60) / maxRadius) * maxRadius);
             double innerradius = (((maxRadius - sizeMultiplier * 90) / maxRadius) * maxRadius);
             double degreeRadius = outerradius + 37 * sizeMultiplier;
@@ -71,12 +68,13 @@ namespace TinyCLR.Compass
             double PitchTiltRadius = innerradius * 0.55;
             if (size.Width * size.Height > 0)
             {
+                if(result!=null)result.Dispose();
                 result = new Bitmap(size.Width, size.Height);
                 using (Font font2 = Resources.GetFont(Resources.FontResources.NinaB))//new Font("Arial", (float)(16 * sizeMultiplier)
                 {
                     using (Font font1 = Resources.GetFont(Resources.FontResources.NinaB))//new Font("Arial", (float)(14 * sizeMultiplier)))
                     {
-                        using (Pen penblue = new Pen(Color.FromArgb(100, 0, 250, 255), ((int)(sizeMultiplier) < 4 ? 4 : (int)(sizeMultiplier))))
+                        using (Pen penblue = new Pen(Color.FromArgb( 0, 250, 255), ((int)(sizeMultiplier) < 4 ? 4 : (int)(sizeMultiplier))))
                         {
                             using (Pen penorange = new Pen(Color.FromArgb(255, 150, 0), ((int)(sizeMultiplier) < 1 ? 1 : (int)(sizeMultiplier))))
                             {
@@ -88,7 +86,7 @@ namespace TinyCLR.Compass
 
                                         using (Pen pen2 = new Pen(Color.FromArgb(255, 255, 255), ((int)(sizeMultiplier) < 1 ? 1 : (int)(sizeMultiplier))))
                                         {
-                                            using (Pen pen3 = new Pen(Color.FromArgb(0, 255, 255, 255), ((int)(sizeMultiplier) < 1 ? 1 : (int)(sizeMultiplier))))
+                                            using (Pen pen3 = new Pen(Color.FromArgb(255, 255, 255), ((int)(sizeMultiplier) < 1 ? 1 : (int)(sizeMultiplier))))
                                             {
                                                 using (Graphics g = Graphics.FromImage(result))
                                                 {
@@ -217,7 +215,7 @@ namespace TinyCLR.Compass
 
 
 
-                                                    String deg = Math.Round(degree).ToString("0.00") + "°";
+                                                    String deg = Math.Round(degree).ToString("n2") + "°";
                                                     SizeF s3 = g.MeasureString(deg, font1);
 
                                                     g.DrawString(deg, font2, drawBrushOrange, xcenterpoint - (int)(s3.Width / 2), ycenterpoint - (int)(sizeMultiplier * 40));

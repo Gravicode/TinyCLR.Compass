@@ -7,6 +7,7 @@ namespace TinyCLR.Compass
         public static void FillPolygon(this Graphics g, Brush brush, Point[] Points)
         {
             if (Points.Length <= 1) return;
+            
             var pen = new Pen(brush);
             for (var i = 0; i < Points.Length; i++)
             {
